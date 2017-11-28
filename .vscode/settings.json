@@ -2,5 +2,5 @@
     "gotoSymbolStack.currentStackPosition": 0,
     "gotoSymbolStack.maxStackPosition": 0,
     "gotoSymbolStack.filePositionInfo": [],
-    "python.pythonPath": "c:/python3/python"
+    "python.pythonPath": "/home/iot/.virtualenvs/pyqt5/bin/python"
 }

@@ -15,8 +15,14 @@ from math import *
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox, QPushButton, QMenu, QDialog, QTableWidget, QTableWidgetItem, QHBoxLayout
 from PyQt5 import QtCore
 from PyQt5 import uic
+from collections import OrderedDict
 
-uifile = os.path.split(os.path.realpath(__file__))[0] + '/calculator.ui'
+if getattr(sys, 'frozen', False):
+    APP_DIR = sys._MEIPASS
+else:
+    APP_DIR = os.path.dirname(os.path.abspath(__file__))
+print(os.listdir(APP_DIR))
+uifile = APP_DIR + '/calculator.ui'
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType(uifile)
 
@@ -38,29 +44,28 @@ class Calculator(QMainWindow, Ui_MainWindow):
         self.actionhelp.triggered.connect(self._help)
 
     def _addButtons(self):
-        '''
+        '''添加按键
         '''
         # 生成0~F字符
         symbol_hex = [hex(x).replace('0x', '').upper() for x in range(0, 16)]
 
         # 运算符号
         # symbol_opt=('x','+','-','*','/','^','<<','>>','(',')','DEL','=')
-        symbol_dict = {
-            'x': u'十六进制标志，0x',
-            'b': u'二进制标志，0b',
-            'o': u'八进制标志,0o',
-            '+': u'加',
-            '-': u'减',
-            '*': u'乘',
-            '/': u'除',
-            '^': u'幂',
-            '<<': u'左移',
-            '>>': u'右移',
-            '(': u'左括号',
-            ')': u'右括号',
-            'DEL': u'删除',
-            '=': u'结果',
-        }
+        symbol_dict=OrderedDict()
+        symbol_dict['x']= u'十六进制标志，0x'
+        symbol_dict['b']= u'二进制标志，0b'
+        symbol_dict['o']= u'八进制标志,0o'
+        symbol_dict['+']= u'加'
+        symbol_dict['-']= u'减'
+        symbol_dict['*']= u'乘'
+        symbol_dict['/']= u'除'
+        symbol_dict['^']= u'幂'
+        symbol_dict['<<']= u'左移'
+        symbol_dict['>>']= u'右移'
+        symbol_dict['(']= u'左括号'
+        symbol_dict[')']= u'右括号'
+        symbol_dict['DEL']= u'删除'
+        symbol_dict['=']= u'结果'
 
         # 所有的符号集合
         symbols = tuple(symbol_hex) + tuple(symbol_dict.keys())

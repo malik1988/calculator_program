@@ -20,3 +20,13 @@ windows 10 自带的计算器超级难用，特别是“程序员模式”，简
     示例： 0x123+123/3*(2<<2)+sin(10)
 - 支持python math库中所有函数表达式运算：
     示例：sin(120) , log(121) , sqrt(12) , degrees(10)
+
+
+## 打包
+### 程序支持pyinstaller打包
+```bash
+pyinstaller  calculator.spec
+```
+
+### 已经打包好的文件在dist目录
+直接运行 dist/calculator
