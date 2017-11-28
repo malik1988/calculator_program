@@ -21,7 +21,6 @@ if getattr(sys, 'frozen', False):
     APP_DIR = sys._MEIPASS
 else:
     APP_DIR = os.path.dirname(os.path.abspath(__file__))
-print(os.listdir(APP_DIR))
 uifile = APP_DIR + '/calculator.ui'
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType(uifile)
