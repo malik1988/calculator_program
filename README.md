@@ -30,3 +30,8 @@ pyinstaller  calculator.spec
 
 ### 已经打包好的文件在dist目录
 直接运行 dist/calculator
+
+## 截图
+![1](./screenshot/screenshot.png)
+![2](./screenshot/screenshot1.png)
+![3](./screenshot/screenshot2.png)
